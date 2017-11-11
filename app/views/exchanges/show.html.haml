@@ -1,5 +1,7 @@
 - if logged_in?
-  = current_user.username
+  = render current_user
   = link_to 'Log out', logout_path
+
+  = render Mutuals.new(current_user).to_a.sort_by { |user| user.username.downcase }
 - else
   = link_to 'Log in with Twitter', '/auth/twitter', class: 'btn btn-primary'

@@ -12,11 +12,15 @@ class UserFromOauth
   attr_reader :auth_hash
 
   def uid
-    auth_hash[:uid]
+    @uid ||= auth_hash[:uid]
   end
 
   def info
     @info ||= auth_hash[:info]
+  end
+
+  def credentials
+    @credentials ||= auth_hash[:credentials]
   end
 
   def find_user
@@ -32,6 +36,8 @@ class UserFromOauth
     user.username = info[:nickname]
     user.email = info[:email]
     user.avatar = info[:image]
+    user.token = credentials[:token]
+    user.secret = credentials[:secret]
     user.save! if user.changed?
     user
   end
