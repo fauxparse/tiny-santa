@@ -4,12 +4,12 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-    @current_user ||= User.find_by(twitter_id: session[:current_user])
+    @current_user ||= User.find_by(uid: session[:current_user])
   end
 
   def current_user=(user)
     if user.present?
-      session[:current_user] = user.twitter_id
+      session[:current_user] = user.uid
     else
       session.delete(:current_user)
     end

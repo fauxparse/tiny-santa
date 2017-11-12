@@ -24,16 +24,16 @@ class UserFromOauth
   end
 
   def find_user
-    User.find_by(twitter_id: uid)
+    User.find_by(uid: uid)
   end
 
   def create_user
-    User.new(twitter_id: uid)
+    User.new(uid: uid)
   end
 
   def updated(user)
     user.name = info[:name]
-    user.username = info[:nickname]
+    user.screen_name = info[:nickname]
     user.email = info[:email]
     user.avatar = info[:image]
     user.token = credentials[:token]

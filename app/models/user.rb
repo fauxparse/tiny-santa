@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_many :santas
 
   validates :name, :avatar, presence: true
-  validates :username, :twitter_id,
+  validates :screen_name, :uid,
     presence: true,
     uniqueness: { case_sensitive: false }
 

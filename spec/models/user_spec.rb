@@ -6,8 +6,8 @@ RSpec.describe User, type: :model do
   it { is_expected.to be_valid }
   it { is_expected.to validate_presence_of(:name) }
   it { is_expected.to validate_presence_of(:avatar) }
-  it { is_expected.to validate_presence_of(:username) }
-  it { is_expected.to validate_uniqueness_of(:username).case_insensitive }
-  it { is_expected.to validate_presence_of(:twitter_id) }
-  it { is_expected.to validate_uniqueness_of(:twitter_id).case_insensitive }
+  it { is_expected.to validate_presence_of(:screen_name) }
+  it { is_expected.to validate_uniqueness_of(:screen_name).case_insensitive }
+  it { is_expected.to validate_presence_of(:uid) }
+  it { is_expected.to validate_uniqueness_of(:uid).case_insensitive }
 end

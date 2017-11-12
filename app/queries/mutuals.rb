@@ -19,20 +19,8 @@ class Mutuals
 
   private
 
-  class Presenter
-    attr_reader :user
-
-    def initialize(user)
-      @user = user
-    end
-
-    def username
-      user.screen_name
-    end
-
-    def name
-      user.name
-    end
+  class Presenter < SimpleDelegator
+    alias_method :user, :__getobj__
 
     def avatar
       user.profile_image_uri
@@ -42,7 +30,7 @@ class Mutuals
       '/users/user'
     end
 
-    def twitter_id
+    def uid
       id
     end
   end
