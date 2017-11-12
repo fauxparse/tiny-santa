@@ -1,6 +1,11 @@
 AllCops:
+  TargetRubyVersion: 2.4.2
   Exclude:
     - 'bin/*'
+    - 'db/schema.rb'
+
+Layout/AlignParameters:
+  Enabled: false
 
 Metrics/LineLength:
   Max: 80
@@ -11,4 +16,7 @@ Style/BlockComments:
     - 'spec/spec_helper.rb'
 
 Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
   Enabled: false

@@ -6,7 +6,7 @@ class CreateSantas < ActiveRecord::Migration[5.1]
 
       t.timestamps
 
-      t.index [:christmas_id, :user_id], unique: true
+      t.index %i[christmas_id user_id], unique: true
     end
   end
 end

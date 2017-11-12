@@ -31,13 +31,18 @@ class UserFromOauth
     User.new(uid: uid)
   end
 
+  FIELDS = {
+    name:        %i[info name],
+    screen_name: %i[info nickname],
+    email:       %i[info email],
+    token:       %i[credentials token],
+    secret:      %i[credentials secret]
+  }.freeze
+
   def updated(user)
-    user.name = info[:name]
-    user.screen_name = info[:nickname]
-    user.email = info[:email]
-    user.avatar = info[:image]
-    user.token = credentials[:token]
-    user.secret = credentials[:secret]
+    FIELDS.each do |field, (section, source_field)|
+      user.send :"#{field}=", send(section)[source_field]
+    end
     user.save! if user.changed?
     user
   end

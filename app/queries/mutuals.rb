@@ -20,7 +20,7 @@ class Mutuals
   private
 
   class Presenter < SimpleDelegator
-    alias_method :user, :__getobj__
+    alias user __getobj__
 
     def avatar
       user.profile_image_uri

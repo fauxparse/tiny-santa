@@ -24,7 +24,7 @@ class ApplicationController < ActionController::Base
   end
 
   def santa
-    christmas&.santas.where(user_id: current_user&.id).first
+    christmas&.santas&.where(user_id: current_user&.id)&.first
   end
 
   helper_method :logged_in?, :current_user, :christmas, :santa
