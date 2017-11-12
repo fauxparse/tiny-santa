@@ -19,5 +19,13 @@ class ApplicationController < ActionController::Base
     current_user.present?
   end
 
-  helper_method :logged_in?, :current_user
+  def christmas
+    @christmas ||= Christmas.present
+  end
+
+  def santa
+    christmas&.santas.where(user_id: current_user&.id).first
+  end
+
+  helper_method :logged_in?, :current_user, :christmas, :santa
 end

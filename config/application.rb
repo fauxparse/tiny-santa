@@ -32,5 +32,7 @@ module TinySanta
       g.view_specs false
       g.helper false
     end
+
+    config.time_zone = 'Wellington'
   end
 end

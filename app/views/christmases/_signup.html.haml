@@ -1,0 +1,44 @@
+%section.how-it-works
+  %h1 Hold me closer, Tiny Santa…
+
+  .row.align-items-stretch
+    .step.col-md-6.col-lg-3
+      %section
+        %h3 Sign up
+        %p
+          Confirm your details and curate your naughty/nice list by
+          = succeed '.' do
+            = l(christmas.signup_deadline.to_date - 1, format: :short)
+        = link_to 'Get started', '#', class: 'btn btn-primary btn-block'
+    .step.col-md-6.col-lg-3
+      %section
+        %h3 Get your giftee
+        %p A robot uses a special algorithm to choose one of your LT mutuals for you to buy a gift for.
+    .step.col-md-6.col-lg-3
+      %section
+        %h3 Send a gift
+        %p There aren’t any warehouses or anything. Just send it straight there.
+    .step.col-md-6.col-lg-3
+      %section
+        %h3 Get a gift!
+        %p A present turns up in the post. Tweet excitedly about it (on LT, of course).
+
+%section.faq
+  %h3 Who's responsible?
+  %p
+    = link_to '@privatecoley', 'http://twitter.com/privatecoley'
+    had the idea.
+    = link_to '@extrapylons', 'http://twitter.com/extrapylons'
+    wrote the code.
+
+  %h3 Who can play?
+  %p
+    We all have locked accounts and different follower lists.
+    The idea is that anyone can sign up and your Santa
+    and your giftee will both be chosen from among your
+    LT mutuals, so you WILL know each other.
+    This gets a bit tricky to manage,
+    but we think we have it sorted.
+
+  %h3 Concerned about privacy?
+  %p Us too. Your address won’t be shared with anyone except your Santa. We’re also considering ways to encrypt it in the database so that we can’t even see it.

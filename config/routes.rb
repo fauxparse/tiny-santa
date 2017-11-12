@@ -4,5 +4,5 @@ Rails.application.routes.draw do
 
   match '/auth/failure', to: redirect('/'), via: 'get'
 
-  root to: 'exchanges#show'
+  root to: 'christmases#show'
 end

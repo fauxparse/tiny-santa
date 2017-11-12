@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_many :santas
+
   validates :name, :avatar, presence: true
   validates :username, :twitter_id,
     presence: true,
