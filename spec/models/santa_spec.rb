@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Santa, type: :model do
-  subject(:santa) { create(:santa) }
+  subject(:santa) { create(:santa, :fake_candidates) }
 
   it { is_expected.to validate_presence_of(:christmas_id) }
   it { is_expected.to validate_presence_of(:user_id) }

@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171112193937) do
+ActiveRecord::Schema.define(version: 20171112194723) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "candidates", force: :cascade do |t|
+    t.bigint "santa_id"
+    t.string "uid", limit: 16
+    t.index ["santa_id"], name: "index_candidates_on_santa_id"
+    t.index ["uid", "santa_id"], name: "index_candidates_on_uid_and_santa_id"
+  end
 
   create_table "christmases", force: :cascade do |t|
     t.datetime "signup_deadline"
