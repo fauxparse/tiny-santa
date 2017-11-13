@@ -1,11 +1,4 @@
 - if christmas.present?
-  - if logged_in?
-    - if santa.present?
-      .jumbotron
-        %h1 Ho ho ho I guess?
-    - else
-      = render 'signup'
-  - else
-    = link_to 'Log in with Twitter', '/auth/twitter', class: 'btn btn-primary'
+  = render 'home'
 - else
   = render 'missing'

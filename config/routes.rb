@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  get '/auth/:provider/callback', to: 'sessions#create'
-  get '/logout', to: 'sessions#destroy'
+  get '/signup', to: 'signups#new', as: :signup
+  post '/signup', to: 'signups#create'
 
-  match '/auth/failure', to: redirect('/'), via: 'get'
+  get '/auth/:provider/callback', to: 'sessions#create'
+  get '/auth/failure', to: redirect('/'), via: 'get'
+  get '/login', to: redirect('/auth/twitter'), as: :login
+  get '/logout', to: 'sessions#destroy'
 
   root to: 'christmases#show'
 end

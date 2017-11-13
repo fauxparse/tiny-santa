@@ -10,4 +10,6 @@
   %body
     = render 'shared/navbar' if logged_in?
     .container
+      - flash.each do |key, message|
+        .alert{class: "alert-#{{notice: :info}[key.to_sym] || key}"}= message
       = yield

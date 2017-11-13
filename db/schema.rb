@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(version: 20171112194723) do
 
   create_table "candidates", force: :cascade do |t|
     t.bigint "santa_id"
-    t.string "uid", limit: 16
+    t.string "uid", limit: 32
     t.index ["santa_id"], name: "index_candidates_on_santa_id"
     t.index ["uid", "santa_id"], name: "index_candidates_on_uid_and_santa_id"
   end

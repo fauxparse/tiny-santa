@@ -1,0 +1,36 @@
+= form_for signup, as: :signup, url: signup_path, html: { class: 'signup-form' } do |form|
+  - if signup.errors.any?
+    .alert.alert-danger
+      %h4 Uh-oh, some problems happened?
+      %p.mb-0 Check the details below and try again.
+  .form-group
+    %h4 Your naughty/nice list
+    %p
+      Deselect anyone you
+      %em don’t
+      want to be a Tiny Santa for
+      (e.g. people you’d normally buy a present for,
+      or your main account).
+      They won’t see that you’ve done this:
+      you’ll only be matched if you both agree.
+    - (signup.errors[:mutuals] || []).each do |error|
+      .alert.alert-danger= error
+    .mutuals
+      %ul
+        = render partial: 'candidate', collection: signup.mutuals, locals: { form: form, signup: signup }
+  %h4 The fine print
+  %p
+    I acknowledge that I’ll be assigned one of the above
+    people as my Tiny Santa gift recipient.
+    I definitely promise to buy them something nice
+    and send it to them in a timely fashion.
+    I understand that one of the above people will
+    see my postal address at some point.
+  - signup.errors.full_messages_for(:conditions).each do |error|
+    .alert.alert-danger= error
+  .form-check
+    = form.label :conditions do
+      = form.check_box :conditions
+      Sounds good to me!
+
+  = form.submit 'Sign me up!', class: 'btn btn-primary'

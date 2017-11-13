@@ -33,6 +33,20 @@ class Mutuals
     def uid
       id
     end
+
+    def url
+      "https://twitter.com/#{screen_name}"
+    end
+
+    def <=>(other)
+      comparable_name <=> other.comparable_name
+    end
+
+    protected
+
+    def comparable_name
+      screen_name.downcase.gsub(/[^a-z0-9]/i, '')
+    end
   end
 
   def twitter
@@ -45,14 +59,14 @@ class Mutuals
   end
 
   def friend_ids
-    twitter.friend_ids.to_a
+    @friend_ids ||= twitter.friend_ids.to_a
   end
 
   def follower_ids
-    twitter.follower_ids.to_a
+    @follwer_ids ||= twitter.follower_ids.to_a
   end
 
   def mutual_ids
-    friend_ids & follower_ids
+    @mutual_ids ||= friend_ids & follower_ids
   end
 end
