@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :santas
+  has_many :santas, dependent: :destroy
 
   validates :name, :avatar, presence: true
   validates :screen_name, :uid,

@@ -35,6 +35,7 @@ class UserFromOauth
     name:        %i[info name],
     screen_name: %i[info nickname],
     email:       %i[info email],
+    avatar:      %i[info image],
     token:       %i[credentials token],
     secret:      %i[credentials secret]
   }.freeze
