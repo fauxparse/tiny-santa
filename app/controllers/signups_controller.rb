@@ -1,4 +1,6 @@
 class SignupsController < ApplicationController
+  before_action :login_required
+
   def new
     redirect_to root_path, notice: 'You’re already signed up!' if santa
   end
