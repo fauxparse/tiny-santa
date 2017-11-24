@@ -15,6 +15,8 @@
         - if logged_in?
           - if santa.present?
             %button.btn.btn-outline-primary{disabled: true} You’re signed up!
+          - elsif christmas.signup_deadline.to_date <= Date.today
+            %button.btn.btn-outline-primary{disabled: true} Signups closed
           - else
             = link_to 'Get started', signup_path, class: 'btn btn-primary btn-block'
         - else
@@ -23,6 +25,9 @@
       %section
         %h3 Get your giftee
         %p A robot uses a special algorithm to choose one of your LT mutuals for you to buy a gift for.
+        %button.btn.btn-outline-primary{disabled: true}
+          Coming by
+          = l(christmas.signup_deadline.to_date + 6.days, format: :short)
     .step.col-md-6.col-lg-3
       %section
         %h3 Send a gift
