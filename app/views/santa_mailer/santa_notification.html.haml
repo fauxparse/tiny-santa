@@ -1,0 +1,17 @@
+%div{style: 'font-family: sans-serif'}
+  %p= "Dear #{@user.screen_name},"
+
+  %p
+    Thanks for signing up to Tiny Santa!
+    You are Santa for
+
+  %blockquote
+    %h2= link_to "@#{@recipient.screen_name}", "https://twitter.com/#{@recipient.screen_name}"
+
+  %p
+    This is also a good time tor
+    = succeed '.' do
+      = link_to 'enter your address details', '#'
+
+  %p Festively,
+  %p @privatecoley and @extrapylons
