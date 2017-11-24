@@ -10,7 +10,9 @@ class AssignSantas
   def call
     @solution = allocate_santas
     raise IntractableSantas, 'No solution available' unless solution
+    check_solution(solution)
     save_solution(solution)
+    solution
   end
 
   private
@@ -31,6 +33,11 @@ class AssignSantas
     end
 
     false
+  end
+
+  def check_solution(solution)
+    raise 'Some people didn’t give anything!' unless solution.keys.sort == santas_by_uid.keys.sort
+    raise 'Some people didn’t get anything!' unless solution.values.sort == santas_by_uid.keys.sort
   end
 
   def save_solution(solution)
