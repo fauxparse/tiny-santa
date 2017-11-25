@@ -42,7 +42,8 @@ class UserFromOauth
 
   def updated(user)
     FIELDS.each do |field, (section, source_field)|
-      user.send :"#{field}=", send(section)[source_field]
+      value = send(section)[source_field]
+      user.send :"#{field}=", value if value.present?
     end
     user.save! if user.changed?
     user
