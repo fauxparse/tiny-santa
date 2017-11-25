@@ -31,5 +31,9 @@ class ApplicationController < ActionController::Base
     redirect_to root_path, alert: 'Please log in first!' unless logged_in?
   end
 
+  def santa_required
+    redirect_to root_path, alert: 'Please log in first!' unless santa.present?
+  end
+
   helper_method :logged_in?, :current_user, :christmas, :santa
 end

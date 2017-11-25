@@ -1,0 +1,9 @@
+- if address.persisted?
+  %h1 Your address
+  %p We have your address recorded as:
+  %blockquote= render address
+  %p Make sure you will be able to receive parcels to this address during December.
+  = link_to 'Change my address', edit_address_path, class: 'btn btn-outline-primary'
+- else
+  %h1 Please enter your address
+  = render 'form'

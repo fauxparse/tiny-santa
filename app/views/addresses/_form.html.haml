@@ -1,0 +1,38 @@
+%ul
+  %li Make sure you will be able to receive parcels to this address during December.
+  %li The only person who will see your address is your Santa.
+  %li Addresses are stored encrypted in the database
+
+= form_for address, url: address_path, method: :put do |form|
+  .form-group
+    = form.label :name
+    = form.text_field :name, class: 'form-control'
+  .row
+    .col-md
+      .form-group
+        = form.label :line_1
+        = form.text_field :line_1, class: 'form-control'
+    .col-md
+      .form-group
+        = form.label :line_2
+        = form.text_field :line_2, class: 'form-control'
+  .row
+    .col-md
+      .form-group
+        = form.label :suburb
+        = form.text_field :suburb, class: 'form-control'
+    .col-md
+      .form-group
+        = form.label :postcode
+        = form.text_field :postcode, class: 'form-control'
+  .row
+    .col-md
+      .form-group
+        = form.label :city
+        = form.text_field :city, class: 'form-control'
+    .col-md
+      .form-group
+        = form.label :country
+        = form.text_field :country, class: 'form-control'
+
+  = form.submit 'Save address', class: 'btn btn-primary'

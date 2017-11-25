@@ -3,6 +3,7 @@ class Santa < ApplicationRecord
   belongs_to :user
   belongs_to :recipient, class_name: 'Santa', optional: true
   has_many :candidates, dependent: :destroy, autosave: true
+  has_one :address
 
   validates :christmas_id, :user_id, presence: true
   validates :user_id, uniqueness: { scope: :christmas_id }

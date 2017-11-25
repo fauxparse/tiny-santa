@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   get '/login', to: redirect('/auth/twitter'), as: :login
   get '/logout', to: 'sessions#destroy'
 
+  resource :address, only: %i[show edit update]
+
   root to: 'christmases#show'
 end
