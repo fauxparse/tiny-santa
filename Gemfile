@@ -33,6 +33,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap', '~> 4.0.0.beta2.1'
 gem 'haml-rails'
 gem 'jquery-rails'
+gem 'premailer-rails'
 
 gem 'attr_encrypted', '~> 3.0.0'
 gem 'omniauth'

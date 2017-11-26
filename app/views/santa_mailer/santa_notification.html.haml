@@ -1,17 +1,29 @@
-%div{style: 'font-family: sans-serif'}
-  %p= "Dear #{@user.screen_name},"
+%p= "Dear #{@user.screen_name},"
 
+%p
+  Welcome to the first ever Tiny Santa: a secret santa for your Little Twitter,
+  with people you know and love.
+
+.jumbotron
   %p
-    Thanks for signing up to Tiny Santa!
-    You are Santa for
+    In exciting news, you are Santa for:
+  %h2= link_to "@#{@recipient.screen_name}", "https://twitter.com/#{@recipient.screen_name}"
 
-  %blockquote
-    %h2= link_to "@#{@recipient.screen_name}", "https://twitter.com/#{@recipient.screen_name}"
+%p
+  In even more exciting news, someone is getting an email just like this to say
+  they're your Santa. So now's a good time to enter your postal address here:
 
-  %p
-    This is also a good time tor
-    = succeed '.' do
-      = link_to 'enter your address details', '#'
+.row.justify-content-center
+  .col-4
+    %p
+      = link_to 'Enter your address', edit_address_url, class: 'btn btn-primary btn-block'
 
-  %p Festively,
-  %p @privatecoley and @extrapylons
+%p
+  There's no price guide, but please don't feel pressured to spend up large, be
+  gentle with yourselves and your wallet on this late-stage capitalist
+  punishment orb. MERRY CHRISTMAS!
+
+%p/
+
+%p Love from your friends,
+%p Matt (@extrapylons) and Coley (@privatecoley)
