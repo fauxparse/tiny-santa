@@ -9,4 +9,8 @@ class Christmas < ApplicationRecord
   def self.present
     current.first
   end
+
+  def assignment_date
+    signup_deadline.to_date + 6.days
+  end
 end

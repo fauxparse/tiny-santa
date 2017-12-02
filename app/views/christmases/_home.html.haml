@@ -4,6 +4,8 @@
     = pluralize christmas.santas.count, 'Santa'
     signed up so far.
 
+  = render partial: 'recipient', object: santa&.recipient
+
   .row.align-items-stretch
     .step.col-md-6.col-lg-3
       %section
@@ -26,8 +28,11 @@
         %h3 Get your giftee
         %p A robot uses a special algorithm to choose one of your LT mutuals for you to buy a gift for.
         %button.btn.btn-outline-primary{disabled: true}
-          Coming by
-          = l(christmas.signup_deadline.to_date + 6.days, format: :short)
+          - if christmas.assignment_date.past?
+            Done!
+          - else
+            Coming by
+            = l(christmas.assignment_date, format: :short)
     .step.col-md-6.col-lg-3
       %section
         %h3 Send a gift

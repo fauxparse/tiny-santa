@@ -1,0 +1,20 @@
+- if recipient.present?
+  .jumbotron
+    %p You are Tiny Santa for
+    %h1= link_to '@' + recipient.user.screen_name, "https://twitter.com/#{recipient.user.screen_name}"
+
+    %hr
+
+    - if recipient.address
+      %input#show-address{type: 'checkbox'}
+      %label{for: 'show-address'}
+        %span.hiding Show address
+        %span.showing Hide address
+
+      .address
+        %blockquote.blockquote= format_address(recipient.address)
+        %p.small
+          Please respect our community by not storing or sharing this address
+          or leaving it open where other people can see it.
+    - else
+      %p They haven’t entered their address yet. Check back later!

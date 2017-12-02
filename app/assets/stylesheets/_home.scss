@@ -1,0 +1,20 @@
+#show-address {
+  display: none;
+
+  + label {
+    color: $link-color;
+    text-decoration: $link-decoration;
+    cursor: pointer;
+
+    @include hover {
+      color: $link-hover-color;
+      text-decoration: $link-hover-decoration;
+    }
+  }
+
+  &:checked + label .hiding,
+  &:not(:checked) + label .showing,
+  &:not(:checked) ~ .address {
+    display: none;
+  }
+}
