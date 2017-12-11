@@ -16,7 +16,7 @@
             = l(christmas.signup_deadline.to_date - 1, format: :short)
         - if logged_in?
           - if santa.present?
-            %button.btn.btn-outline-primary{disabled: true} You’re signed up!
+            = link_to "#{santa.address ? 'Edit' : 'Add'} your address", address_path, class: 'btn btn-outline-primary'
           - elsif christmas.signup_deadline.to_date <= Date.today
             %button.btn.btn-outline-primary{disabled: true} Signups closed
           - else
